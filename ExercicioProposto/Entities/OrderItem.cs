@@ -23,7 +23,10 @@ namespace ExercicioProposto.Entities
         {
             return Price * Quantity;
         }
-         
 
+        public override string ToString()
+        {
+            return $"{Product.Name}, ${Price}, Quantity: {Quantity}, SubTotal: ${SubTotal()}";
+        }
     }
 }
