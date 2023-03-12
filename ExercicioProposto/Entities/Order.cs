@@ -8,7 +8,7 @@ namespace ExercicioProposto.Entities
 {
     class Order
     {
-        public DateTime Moment { get; private set; }
+        public DateTime Moment { get; set; }
         public OrderStatus Status { get; set; }
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
         public Client Client { get; set; }
@@ -18,10 +18,11 @@ namespace ExercicioProposto.Entities
             Moment = DateTime.Now;
         }
 
-        public Order(OrderStatus status, Client client)
+        public Order(OrderStatus status, Client client, DateTime moment)
         {
             Status = status;
             Client = client;
+            Moment = moment;
         }
 
         public void AddItem(OrderItem item)
@@ -58,7 +59,7 @@ namespace ExercicioProposto.Entities
                 sb.AppendLine(item.ToString());
             }
 
-            sb.AppendLine("Total price: " + Total());
+            sb.AppendLine("Total price: " + Total().ToString("F2", CultureInfo.InvariantCulture));
             return sb.ToString();
         }
 

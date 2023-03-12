@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ExercicioProposto.Entities
 {
@@ -26,7 +27,7 @@ namespace ExercicioProposto.Entities
 
         public override string ToString()
         {
-            return $"{Product.Name}, ${Price}, Quantity: {Quantity}, SubTotal: ${SubTotal()}";
+            return $"{Product.Name}, ${Price.ToString("F2", CultureInfo.InvariantCulture)}, Quantity: {Quantity}, SubTotal: ${SubTotal().ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }

@@ -9,6 +9,7 @@ namespace ExercicioProposto
     {
         static void Main(string[] args)
         {
+             
             Console.WriteLine("Enter cliente data:");
             Console.Write("Name: ");
             string clientName = Console.ReadLine();
@@ -25,7 +26,7 @@ namespace ExercicioProposto
 
             Console.Write("How many items to this order? ");
             int itemsToOrder = int.Parse(Console.ReadLine());
-            Order order = new Order(orderStatus, client);
+            Order order = new Order(orderStatus, client, DateTime.Now);
 
             Console.WriteLine();
             for (int i = 1; i <= itemsToOrder; i++)
@@ -46,7 +47,8 @@ namespace ExercicioProposto
             }
 
             Console.WriteLine("Order sumary: ");
-            Console.WriteLine(order.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine(order.ToString());
+    
         }
     }
 }
